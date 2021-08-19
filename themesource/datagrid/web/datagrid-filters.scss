@@ -60,7 +60,7 @@ $arrow: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='
             position: absolute;
             width: max-content;
             left: 0;
-            margin: 0 $spacing-medium;
+            margin: 0 $spacing-small;
             padding: 0;
             background: $background-color;
             z-index: 99;
@@ -108,13 +108,14 @@ $arrow: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='
         background-position-y: center;
         background-origin: content-box;
         text-overflow: ellipsis;
+        width: 100%;
     }
 
     .dropdown-list {
         position: absolute;
         width: max-content;
         left: 0;
-        margin: 0 $spacing-medium;
+        margin: 0 $spacing-small;
         padding: 0;
         background: $background-color;
         z-index: 99;
@@ -212,4 +213,23 @@ Icons
 }
 .startsWith:before {
     content: "\e807";
+}
+
+/**
+* Specific styles for filters inside Data Grid 2
+**/
+div:not(.table-compact) > .table {
+    .th {
+        .filter-selector {
+            .filter-selectors {
+                margin: 0 $spacing-medium;
+            }
+        }
+
+        .dropdown-container {
+            .dropdown-list {
+                margin: 0 $spacing-medium;
+            }
+        }
+    }
 }
