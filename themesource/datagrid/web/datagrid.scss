@@ -44,7 +44,6 @@ $brand-primary: #264ae5 !default;
         position: -webkit-sticky; /* Safari */
         position: sticky;
         top: 0;
-        z-index: 1;
 
         /* Clickable column header (Sortable) */
         .clickable {
@@ -143,13 +142,13 @@ $brand-primary: #264ae5 !default;
                 margin: 8px;
                 padding: 0 16px;
                 background: $background-color;
+                z-index: 99;
                 border-radius: 3px;
                 border: 1px solid transparent;
                 list-style-type: none;
                 -webkit-box-shadow: 0 2px 20px 1px rgba(32, 43, 54, 0.08);
                 -moz-box-shadow: 0 2px 20px 1px rgba(32, 43, 54, 0.08);
                 box-shadow: 0 2px 20px 1px rgba(32, 43, 54, 0.08);
-                z-index: 1;
 
                 li {
                     display: flex;
@@ -252,6 +251,35 @@ $brand-primary: #264ae5 !default;
         &:disabled {
             border-color: transparent;
             background-color: transparent;
+        }
+    }
+}
+
+/* Column selector for hidable columns outside DG context */
+/* List of columns to select */
+.column-selectors {
+    position: absolute;
+    right: 0;
+    margin: 8px 0;
+    padding: 0 16px;
+    background: $background-color;
+    z-index: 99;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    list-style-type: none;
+    -webkit-box-shadow: 0 2px 20px 1px rgba(32, 43, 54, 0.08);
+    -moz-box-shadow: 0 2px 20px 1px rgba(32, 43, 54, 0.08);
+    box-shadow: 0 2px 20px 1px rgba(32, 43, 54, 0.08);
+
+    li {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        label {
+            margin: 8px;
+            font-weight: normal;
+            white-space: nowrap;
         }
     }
 }

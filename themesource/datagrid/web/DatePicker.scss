@@ -99,11 +99,13 @@ $border-color: #D7D7D7 !default;
 .react-datepicker__navigation--previous {
   border-right-color: #ccc;
   left: 8px;
+  border: none;
 }
 
 .react-datepicker__navigation--next {
   border-left-color: #ccc;
   right: 8px;
+  border: none;
 }
 
 
@@ -112,4 +114,5 @@ Space between the fields and the popup
  */
 .react-datepicker-popper[data-placement^="bottom"] {
   margin-top: unset;
+  padding-top: 8px;
 }
