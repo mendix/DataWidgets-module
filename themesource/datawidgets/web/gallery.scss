@@ -1,0 +1,10 @@
+ /* ==========================================================================
+   Gallery
+
+   Override styles of Gallery widget
+========================================================================== */
+.widget-gallery {
+    .widget-gallery-items {
+        grid-gap: $spacing-small;
+    }
+}
