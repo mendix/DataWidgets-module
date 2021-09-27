@@ -13,3 +13,6 @@
 /javasource/system/
 /**/node_modules/
 !/javascriptsource/**/node_modules/
+/datagrid.mpr.bak
+/datagrid.mpr.lock
+/nativemobile/builds/
