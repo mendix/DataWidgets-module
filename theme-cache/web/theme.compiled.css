@@ -21463,6 +21463,13 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 .pagination-bar .pagination-button:focus-visible {
   outline: 1px solid #264ae5;
 }
+.pagination-bar .pagination-icon {
+  position: relative;
+  top: 4px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
 
 /* Column selector for hidable columns outside DG context */
 /* List of columns to select */
@@ -21653,6 +21660,10 @@ Space between the fields and the popup
 }
 .filter-container .btn-calendar {
   margin-left: 5px;
+}
+.filter-container .btn-calendar .button-icon {
+  width: 18px;
+  height: 18px;
 }
 
 .filter-selector {
