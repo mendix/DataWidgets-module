@@ -21415,19 +21415,10 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 .table .align-column-left {
   justify-content: flex-start;
 }
-.table .align-column-left span {
-  justify-content: flex-start;
-}
 .table .align-column-center {
   justify-content: center;
 }
-.table .align-column-center span {
-  justify-content: center;
-}
 .table .align-column-right {
-  justify-content: flex-end;
-}
-.table .align-column-right span {
   justify-content: flex-end;
 }
 
