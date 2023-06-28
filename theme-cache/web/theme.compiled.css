@@ -21245,7 +21245,7 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   /* Safari */
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 50;
   min-width: 0;
   /* Clickable column header (Sortable) */
   /* Column resizer when column is resizable */
@@ -21388,8 +21388,7 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 .table .td:focus {
   outline: none;
 }
-.table .td > .td-text,
-.table .td * {
+.table .td > .td-text {
   white-space: nowrap;
   word-break: break-word;
   text-overflow: ellipsis;
@@ -21797,6 +21796,7 @@ Space between the fields and the popup
   position: sticky;
   bottom: 0;
   background: inherit;
+  z-index: 50;
 }
 
 .dropdown-footer-item {
