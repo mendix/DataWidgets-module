@@ -22507,6 +22507,10 @@ input[type=checkbox].three-state-checkbox + .control-label {
   font-size: 16px;
   margin: 0 8px;
 }
+.widget-tree-node .widget-tree-node-branch-header-icon-container {
+  display: flex;
+  align-items: center;
+}
 .widget-tree-node .widget-tree-node-body {
   padding-left: 24px;
   transition: height 0.2s ease 50ms;
