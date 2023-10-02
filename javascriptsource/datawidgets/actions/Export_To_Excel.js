@@ -18,7 +18,7 @@ import { utils, writeFileXLSX } from './xlsx-export-tools.js';
  * @param {string} sheetName
  * @param {boolean} includeColumnHeaders
  * @param {Big} chunkSize - The number of items fetched and exported per request.
- * @returns {Promise.<void>}
+ * @returns {Promise.<boolean>}
  */
 export async function Export_To_Excel(datagridName, fileName, sheetName, includeColumnHeaders, chunkSize) {
 	// BEGIN USER CODE
