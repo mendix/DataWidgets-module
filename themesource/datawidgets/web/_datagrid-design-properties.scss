@@ -6,12 +6,31 @@
             margin: 0 $spacing-small;
         }
     }
+
+    &:has(.th .column-container .filter:not(:empty)) {
+        .th {
+            &.column-selector {
+                padding: $spacing-small 0;
+            }
+            &.widget-datagrid-col-select {
+                padding-bottom: calc($spacing-small + 11px);
+            }
+        }
+    }
+
     .td {
         padding: $spacing-small;
     }
 
     .dropdown-container .dropdown-list {
         margin: 0 $spacing-small;
+    }
+
+    .column-selector {
+        /* Column content */
+        .column-selector-content {
+            padding-right: $spacing-small;
+        }
     }
 }
 

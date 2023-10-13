@@ -21213,13 +21213,6 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   margin-right: 16px;
 }
 
-.sticky-sentinel.container-stuck + .table .th {
-  position: -webkit-sticky;
-  /* Safari */
-  position: sticky;
-  z-index: 50;
-}
-
 .table {
   position: relative;
   border-width: 0;
@@ -21227,15 +21220,13 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   /* Table Content */
   /* Pseudo Row, to target this object please use .tr > .td or .tr > div */
   /* Column Header */
+  /* If Column Header has filter */
   /* Column selector for hidable columns */
   /* Column content */
 }
 .table .table-content {
   display: grid;
   position: relative;
-}
-.table .table-content.infinite-loading {
-  overflow-y: scroll;
 }
 .table .tr {
   display: contents;
@@ -21288,8 +21279,10 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   border-left: 4px solid rgba(10, 19, 37, 0.8);
   padding-left: 0;
 }
-.table .th .column-header {
+.table .th .column-container:not(:has(.filter)) .column-header {
   height: 100%;
+}
+.table .th .column-header {
   margin: 1px 1px -2px;
   display: flex;
   align-items: baseline;
@@ -21299,6 +21292,8 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   flex-grow: 1;
   text-overflow: ellipsis;
   overflow: hidden;
+  text-wrap: nowrap;
+  align-self: center;
 }
 .table .th .column-header svg {
   margin-left: 8px;
@@ -21329,12 +21324,28 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   flex: unset;
   min-width: unset;
 }
+.table:has(.th .column-container .filter:not(:empty)) .th {
+  /*adjust filter-selector icon to be mid-bottom aligned */
+  /*adjust checkbox toggle to be mid-bottom aligned */
+}
+.table:has(.th .column-container .filter:not(:empty)) .th.column-selector {
+  padding: 16px 0;
+}
+.table:has(.th .column-container .filter:not(:empty)) .th .column-selector-content {
+  align-self: flex-end;
+  margin-bottom: 3px;
+}
+.table:has(.th .column-container .filter:not(:empty)) .th.widget-datagrid-col-select {
+  align-items: flex-end;
+  padding-bottom: 27px;
+}
 .table .column-selector {
   padding: 0;
   /* Column content */
 }
 .table .column-selector .column-selector-content {
   align-self: center;
+  padding-right: 16px;
   /* Button containing the eye icon */
   /* List of columns to select */
 }
@@ -21342,13 +21353,11 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   /* 2px as path of icon's path is a bit bigger than outer svg */
   padding: 0;
   margin: 0;
-  height: 32px;
-  width: 32px;
+  height: 30px;
+  width: 30px;
 }
 .table .column-selector .column-selector-content .column-selector-button svg {
-  width: 14px;
-  height: 14px;
-  margin: 8px;
+  margin: 7px;
 }
 .table .column-selector .column-selector-content .column-selectors {
   position: absolute;
@@ -21838,8 +21847,6 @@ Space between the fields and the popup
   width: 100%;
 }
 .dropdown-container .dropdown-list {
-  position: absolute;
-  min-width: 100%;
   left: 0;
   margin: 0 8px;
   padding: 0;
@@ -21968,11 +21975,23 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
 .table-compact .th .filter-selectors {
   margin: 0 8px;
 }
+.table-compact:has(.th .column-container .filter:not(:empty)) .th.column-selector {
+  padding: 8px 0;
+}
+.table-compact:has(.th .column-container .filter:not(:empty)) .th.widget-datagrid-col-select {
+  padding-bottom: 19px;
+}
 .table-compact .td {
   padding: 8px;
 }
 .table-compact .dropdown-container .dropdown-list {
   margin: 0 8px;
+}
+.table-compact .column-selector {
+  /* Column content */
+}
+.table-compact .column-selector .column-selector-content {
+  padding-right: 8px;
 }
 
 .table-striped .tr:nth-child(odd) > .td {
@@ -22047,6 +22066,22 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
 .table-bordered-none .td.td-borders,
 .table-bordered-none .th.td-borders {
   border: 0;
+}
+
+.sticky-sentinel.container-stuck + .widget-datagrid-grid .th, .sticky-sentinel.container-stuck + .table .th {
+  position: -webkit-sticky;
+  /* Safari */
+  position: sticky;
+  z-index: 50;
+}
+
+.widget-datagrid-content.infinite-loading {
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.table .table-content.infinite-loading {
+  overflow-y: scroll;
 }
 
 /* ==========================================================================
