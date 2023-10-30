@@ -22268,6 +22268,7 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
 }
 .widget-gallery .widget-gallery-clickable:focus-visible {
   outline: 1px solid #264ae5;
+  outline-offset: -1px;
 }
 .widget-gallery:not(.widget-gallery-disable-selected-items-highlight) .widget-gallery-item.widget-gallery-clickable.widget-gallery-selected {
   background: #e6eaff;
@@ -22351,6 +22352,10 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
 }
 .widget-gallery .widget-gallery-row-span-12 {
   grid-row: span 12;
+}
+
+.widget-gallery-item-button {
+  width: inherit;
 }
 
 /* ==========================================================================
