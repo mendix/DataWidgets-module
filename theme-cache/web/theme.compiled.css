@@ -21400,6 +21400,9 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 .table .td:focus {
   outline: none;
 }
+.table .td.clickable {
+  cursor: pointer;
+}
 .table .td > .td-text {
   white-space: nowrap;
   word-break: break-word;
