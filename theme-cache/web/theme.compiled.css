@@ -21398,7 +21398,10 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   border-top-style: solid;
 }
 .table .td:focus {
-  outline: none;
+  outline-width: 1px;
+  outline-style: solid;
+  outline-offset: -1px;
+  outline-color: #264ae5;
 }
 .table .td.clickable {
   cursor: pointer;
@@ -21509,6 +21512,10 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 
 .widget-datagrid.widget-datagrid-selection-method-click .tr.tr-selected .td {
   background-color: #e6eaff;
+}
+
+.widget-datagrid-col-select input:focus-visible {
+  outline-offset: 0;
 }
 
 /**
