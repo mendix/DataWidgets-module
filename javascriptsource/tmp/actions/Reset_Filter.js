@@ -5,21 +5,21 @@
 // - the code between BEGIN USER CODE and END USER CODE
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
-import { Big } from "big.js";
 import "mx-global";
+import { Big } from "big.js";
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
 
 /**
- * @param {string} targetName - Name of the widget for which filters should be reset. Valid targets are: Data grid 2, Gallery. You can find filter name in widget settings in the "Common" group (Properties>Common>Name).
+ * @param {string} targetName - Name of the filter to reset. Valid targets are: Number filter, Date filter, Text filter, Drop-down filter.
  * @returns {Promise.<void>}
  */
-export async function Reset_All_Filters(targetName) {
+export async function Reset_Filter(targetName) {
 	// BEGIN USER CODE
     const plugin = window["com.mendix.widgets.web.plugin.externalEvents"];
     if (plugin) {
-        plugin.emit(targetName, "reset.filters");
+        plugin.emit(targetName, "reset.value");
     }
 	// END USER CODE
 }
