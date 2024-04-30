@@ -21418,7 +21418,7 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   border-top-width: 1px;
   border-top-style: solid;
 }
-.table .td:focus {
+.table .td:focus-visible {
   outline-width: 1px;
   outline-style: solid;
   outline-offset: -1px;
