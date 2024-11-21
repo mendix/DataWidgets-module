@@ -21634,9 +21634,6 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 }
 
 .widget-datagrid {
-  --brand-primary: #264ae5;
-  --dg-brand-primary: #264ae5;
-  --dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2d2d2 100%);
   position: relative;
 }
 .widget-datagrid.widget-datagrid-selection-method-click .tr.tr-selected .td {
@@ -21684,7 +21681,7 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 }
 .widget-datagrid-skeleton-loader {
   animation: skeleton-loading 1s linear infinite alternate;
-  background: var(--dg-skeleton-background);
+  background: var(--dg-skeleton-background, linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2d2d2 100%));
   background-size: 300% 100%;
   border-radius: 4px;
   height: 16px;
@@ -21705,7 +21702,7 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   --widget-combobox-spinner-loader: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
   animation: rotate 1s infinite linear;
   aspect-ratio: 1;
-  background: var(--brand-primary, --dg-brand-primary);
+  background: var(--brand-primary, #264ae5);
   border-radius: 50%;
   mask: var(--widget-combobox-spinner-loader);
   mask-composite: subtract;
