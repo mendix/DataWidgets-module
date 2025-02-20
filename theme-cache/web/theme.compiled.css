@@ -21319,16 +21319,11 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   position: relative;
   border-width: 0;
   background-color: var(--bg-color-secondary, #fff);
-  /* Table Content */
   /* Pseudo Row, to target this object please use .tr > .td or .tr > div */
   /* Column Header */
   /* If Column Header has filter */
   /* Column selector for hidable columns */
   /* Column content */
-}
-.table .table-content {
-  display: grid;
-  position: relative;
 }
 .table .tr {
   display: contents;
@@ -21633,6 +21628,13 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 .widget-datagrid {
   position: relative;
 }
+.widget-datagrid-grid-head {
+  display: grid;
+}
+.widget-datagrid-grid-body {
+  display: grid;
+  position: relative;
+}
 .widget-datagrid.widget-datagrid-selection-method-click .tr.tr-selected .td {
   background-color: #e6eaff;
 }
@@ -21655,15 +21657,13 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 .widget-datagrid-col-select input:focus-visible {
   outline-offset: 0;
 }
-.widget-datagrid-content {
-  overflow-y: auto;
-}
 .widget-datagrid-loader-container {
   align-items: center;
   background-color: rgb(255, 255, 255);
   display: flex;
   height: 400px;
   justify-content: center;
+  grid-column: 1/-1;
 }
 .widget-datagrid-skeleton, .widget-datagrid-spinner {
   align-content: center;
@@ -21674,7 +21674,9 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   overflow: hidden;
 }
 .widget-datagrid-skeleton {
-  padding: 6px var(--dropdown-outer-padding, 10px);
+  padding: 2px var(--dropdown-outer-padding, 0);
+  overflow: hidden;
+  flex: 1;
 }
 .widget-datagrid-skeleton-loader {
   animation: skeleton-loading 1s linear infinite alternate;
@@ -21682,7 +21684,8 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   background-size: 300% 100%;
   border-radius: 4px;
   height: 16px;
-  width: 148px;
+  width: 100%;
+  max-width: 148px;
 }
 .widget-datagrid-skeleton-loader-small {
   margin-right: 8px;
@@ -21723,6 +21726,10 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 .widget-datagrid .widget-datagrid-load-more {
   display: block !important;
   margin: 0 auto;
+}
+
+:where(.widget-datagrid-grid-body.infinite-loading) {
+  overflow-y: auto;
 }
 
 @keyframes skeleton-loading {
@@ -22204,7 +22211,7 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
   --wdf-toggle-inline-end-clearable: calc(var(--wdf-clear-width) + var(--wdf-toggle-inline-end));
   --wdf-tag-padding: var(--wdf-spacing-tiny) var(--dropdown-outer-spacing, 10px);
 }
-.widget-dropdown-filter:where(.form-control) {
+.widget-dropdown-filter.form-control {
   padding: 0;
   position: relative;
   display: grid;
@@ -22568,31 +22575,6 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
 .table-bordered-none .td.td-borders,
 .table-bordered-none .th.td-borders {
   border: 0;
-}
-
-.container-stuck + .table .th {
-  position: -webkit-sticky;
-  /* Safari */
-  position: sticky;
-  z-index: 50;
-}
-
-/**
- * Another hack for sticky header and filters.
- * Don't use this code anywhere else, and if you can, please remove it.
- * If we moved headers out of the grid body, please, remove this piece of guano.
- */
-.container-stuck + .table .th:has(.filter-selectors.visible) {
-  z-index: 51;
-}
-
-.widget-datagrid-content.infinite-loading {
-  overflow-y: auto;
-  margin-bottom: 20px;
-}
-
-.table .table-content.infinite-loading {
-  overflow-y: scroll;
 }
 
 /* ==========================================================================
