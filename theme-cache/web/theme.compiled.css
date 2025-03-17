@@ -21381,6 +21381,7 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   padding: 0 4px;
   align-self: stretch;
   cursor: col-resize;
+  margin-right: -12px;
 }
 .table .th .column-resizer:hover .column-resizer-bar {
   background-color: var(--brand-primary, #264ae5);
