@@ -16,3 +16,6 @@
 /datagrid.mpr.bak
 /datagrid.mpr.lock
 /nativemobile/builds/
+/vendorlib/temp/
+.DS_Store
+/.svn/
