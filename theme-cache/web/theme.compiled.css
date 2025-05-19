@@ -23765,6 +23765,9 @@ input[type=checkbox].three-state-checkbox {
   -webkit-appearance: none;
   transform: translateZ(0);
 }
+input[type=checkbox].three-state-checkbox:disabled {
+  cursor: initial;
+}
 input[type=checkbox].three-state-checkbox:before, input[type=checkbox].three-state-checkbox:after {
   position: absolute;
   display: block;
@@ -23812,11 +23815,11 @@ input[type=checkbox].three-state-checkbox:indeterminate:after, input[type=checkb
 input[type=checkbox].three-state-checkbox:disabled:before {
   background-color: #f8f8f8;
 }
-input[type=checkbox].three-state-checkbox:checked:disabled:before {
+input[type=checkbox].three-state-checkbox:indeterminate:disabled:before, input[type=checkbox].three-state-checkbox:checked:disabled:before {
   border-color: transparent;
   background-color: rgba(38, 74, 229, 0.4);
 }
-input[type=checkbox].three-state-checkbox:disabled:after, input[type=checkbox].three-state-checkbox:checked:disabled:after {
+input[type=checkbox].three-state-checkbox:disabled:after {
   border-color: #f8f8f8;
 }
 input[type=checkbox].three-state-checkbox + .control-label {
