@@ -21638,8 +21638,13 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 .widget-datagrid {
   position: relative;
 }
-.widget-datagrid-grid {
+.widget-datagrid-grid.table {
   display: grid !important;
+  min-width: fit-content;
+  margin-bottom: 0;
+}
+.widget-datagrid-content {
+  overflow-x: auto;
 }
 .widget-datagrid-grid-head {
   display: contents;
@@ -22851,6 +22856,11 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
 
 .widget-gallery-item-button {
   width: inherit;
+}
+
+.widget-gallery-load-more {
+  display: flex;
+  justify-content: center;
 }
 
 /* ==========================================================================
