@@ -23115,6 +23115,11 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
 .widget-dropdown-filter-menu-item:where([data-highlighted]) {
   background-color: var(--wdf-highlighted-bg-color);
 }
+.widget-dropdown-filter-menu-item-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .widget-dropdown-filter-checkbox-slot {
   display: flex;
   margin-inline-end: var(--wdf-outer-spacing);
