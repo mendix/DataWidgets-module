@@ -17,6 +17,9 @@ import { Big } from "big.js";
  */
 export async function Clear_Selection(targetName) {
 	// BEGIN USER CODE
-	throw new Error("JavaScript action was not implemented");
+    const plugin = window["com.mendix.widgets.web.plugin.externalEvents"];
+    if (plugin) {
+        plugin.emit(targetName, "selection.clear");
+    }
 	// END USER CODE
 }
