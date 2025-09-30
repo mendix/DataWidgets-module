@@ -21746,13 +21746,15 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   margin: 0 auto;
 }
 
-:where(.widget-datagrid-grid.infinite-loading) {
+.infinite-loading.widget-datagrid-grid-body {
   overflow-y: auto;
 }
 
-:where(.infinite-loading .widget-datagrid-grid-head .th) {
-  position: sticky;
-  z-index: 1;
+.widget-datagrid-grid-head,
+.widget-datagrid-grid-body {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1/-1;
 }
 
 :where(.widget-datagrid-paging-bottom) {
