@@ -21662,13 +21662,19 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 .widget-datagrid-exporting .widget-datagrid-top-bar,
 .widget-datagrid-exporting .widget-datagrid-header,
 .widget-datagrid-exporting .widget-datagrid-content,
-.widget-datagrid-exporting .widget-datagrid-footer {
+.widget-datagrid-exporting .widget-datagrid-footer, .widget-datagrid-selecting-all-pages .widget-datagrid-top-bar,
+.widget-datagrid-selecting-all-pages .widget-datagrid-header,
+.widget-datagrid-selecting-all-pages .widget-datagrid-content,
+.widget-datagrid-selecting-all-pages .widget-datagrid-footer {
   visibility: hidden;
 }
 .widget-datagrid-exporting .widget-datagrid-top-bar *,
 .widget-datagrid-exporting .widget-datagrid-header *,
 .widget-datagrid-exporting .widget-datagrid-content *,
-.widget-datagrid-exporting .widget-datagrid-footer * {
+.widget-datagrid-exporting .widget-datagrid-footer *, .widget-datagrid-selecting-all-pages .widget-datagrid-top-bar *,
+.widget-datagrid-selecting-all-pages .widget-datagrid-header *,
+.widget-datagrid-selecting-all-pages .widget-datagrid-content *,
+.widget-datagrid-selecting-all-pages .widget-datagrid-footer * {
   transition: unset;
 }
 .widget-datagrid-col-select input:focus-visible {
@@ -21772,16 +21778,33 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 :where(.widget-datagrid-pb-start) {
   margin-block: var(--spacing-medium);
   padding-inline: var(--spacing-medium);
+  display: flex;
+  align-items: center;
 }
 
-.widget-datagrid-clear-selection {
+.widget-datagrid-btn-link {
   cursor: pointer;
   background: transparent;
   border: none;
-  text-decoration: underline;
   color: var(--link-color);
-  padding: 0;
+  padding: 0.3em 0.5em;
+  border-radius: 6px;
   display: inline-block;
+}
+.widget-datagrid-btn-link:hover, .widget-datagrid-btn-link:focus-visible {
+  background-color: var(--brand-primary-50, #e6e7f2);
+}
+
+:where(.widget-datagrid-select-all-bar) {
+  grid-column: 1/-1;
+  background-color: #f0f1f2;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: var(--spacing-smaller, 8px) var(--spacing-medium, 16px);
+}
+:where(.widget-datagrid-select-all-bar) .widget-datagrid-spinner {
+  padding: 6.2px;
 }
 
 @keyframes skeleton-loading {
@@ -22675,13 +22698,14 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
    Override styles of Gallery widget
 ========================================================================== */
 .widget-gallery {
+  --gallery-gap: var(--spacing-small, $gallery-gap);
   /**
    Helper classes
     */
 }
 .widget-gallery .widget-gallery-items {
   display: grid;
-  grid-gap: var(--spacing-small, 8px);
+  grid-gap: var(--gallery-gap);
   /*
    Desktop widths
    */
@@ -22966,7 +22990,7 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
   left: 0;
   right: 0;
   border-bottom: 1px solid var(--grid-border-color, #ced0d3);
-  margin-top: calc(var(--spacing-small, 8px) / 2);
+  margin-top: calc(var(--gallery-gap, var(--spacing-small, 8px)) / 2 - 1px);
 }
 
 .widget-gallery-hover .widget-gallery-items .widget-gallery-item:hover {
@@ -22980,20 +23004,20 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
   background-color: #fff;
 }
 
-.widget-gallery.widget-gallery-gridgap-none .widget-gallery-items {
-  gap: 0;
+.widget-gallery.widget-gallery-gridgap-none {
+  --gallery-gap: 0px;
 }
 
-.widget-gallery.widget-gallery-gridgap-small .widget-gallery-items {
-  gap: var(--spacing-small, 8px);
+.widget-gallery.widget-gallery-gridgap-small {
+  --gallery-gap: var(--spacing-small, $spacing-small);
 }
 
-.widget-gallery.widget-gallery-gridgap-medium .widget-gallery-items {
-  gap: var(--spacing-medium, 16px);
+.widget-gallery.widget-gallery-gridgap-medium {
+  --gallery-gap: var(--spacing-medium, $spacing-medium);
 }
 
-.widget-gallery.widget-gallery-gridgap-large .widget-gallery-items {
-  gap: var(--spacing-large, 24px);
+.widget-gallery.widget-gallery-gridgap-large {
+  --gallery-gap: var(--spacing-large, $spacing-large);
 }
 
 .widget-gallery-pagination-left .widget-gallery-pagination .pagination-bar {
@@ -23002,6 +23026,10 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
 
 .widget-gallery-pagination-center .widget-gallery-pagination .pagination-bar {
   justify-content: center;
+}
+
+.widget-gallery-disable-selected-items-highlight {
+  /* stylelint-disable-line no-empty-rules */
 }
 
 .mx-refresh-container {
