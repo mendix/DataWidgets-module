@@ -21568,7 +21568,7 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   justify-content: flex-end;
   white-space: nowrap;
   align-items: baseline;
-  margin: 0 16px;
+  margin: 16px;
   color: #0a1325;
 }
 .pagination-bar .paging-status {
