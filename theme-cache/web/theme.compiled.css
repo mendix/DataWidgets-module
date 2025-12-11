@@ -21408,6 +21408,7 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   display: flex;
   align-items: baseline;
   font-weight: 600;
+  /* Drag handle */
 }
 .table .th .column-header span {
   min-width: 0;
@@ -21423,6 +21424,34 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   color: var(--gray-dark, #474e5c);
   height: var(--btn-font-size, 14px);
   align-self: center;
+}
+.table .th .column-header .drag-handle {
+  cursor: grab;
+  pointer-events: auto;
+  position: relative;
+  width: 14px;
+  padding: 0;
+  flex-grow: 0;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-self: normal;
+  z-index: 1;
+}
+.table .th .column-header .drag-handle:hover {
+  background-color: var(--brand-primary-50, #e6eaff);
+}
+.table .th .column-header .drag-handle:hover svg {
+  color: var(--brand-primary, #264ae5);
+}
+.table .th .column-header .drag-handle:active {
+  cursor: grabbing;
+}
+.table .th .column-header .drag-handle svg {
+  margin: 0;
+}
+.table .th .column-header .drag-handle + .column-caption {
+  padding-inline-start: 4px;
 }
 .table .th .column-header:focus:not(:focus-visible) {
   outline: none;
@@ -21532,6 +21561,7 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 }
 .table .td > .td-custom-content {
   flex-grow: 1;
+  min-width: 0;
 }
 .table .td > .empty-placeholder {
   width: 100%;
