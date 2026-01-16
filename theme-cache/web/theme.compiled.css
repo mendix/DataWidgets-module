@@ -21408,7 +21408,6 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   display: flex;
   align-items: baseline;
   font-weight: 600;
-  /* Drag handle */
 }
 .table .th .column-header span {
   min-width: 0;
@@ -21424,34 +21423,6 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   color: var(--gray-dark, #474e5c);
   height: var(--btn-font-size, 14px);
   align-self: center;
-}
-.table .th .column-header .drag-handle {
-  cursor: grab;
-  pointer-events: auto;
-  position: relative;
-  width: 14px;
-  padding: 0;
-  flex-grow: 0;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  align-self: normal;
-  z-index: 1;
-}
-.table .th .column-header .drag-handle:hover {
-  background-color: var(--brand-primary-50, #e6eaff);
-}
-.table .th .column-header .drag-handle:hover svg {
-  color: var(--brand-primary, #264ae5);
-}
-.table .th .column-header .drag-handle:active {
-  cursor: grabbing;
-}
-.table .th .column-header .drag-handle svg {
-  margin: 0;
-}
-.table .th .column-header .drag-handle + .column-caption {
-  padding-inline-start: 4px;
 }
 .table .th .column-header:focus:not(:focus-visible) {
   outline: none;
@@ -21673,17 +21644,14 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   min-width: fit-content;
   margin-bottom: 0;
 }
+.widget-datagrid-grid.table.infinite-loading {
+  min-width: 0;
+}
 .widget-datagrid-top-bar {
   container: widget-datagrid-header/inline-size;
 }
 .widget-datagrid-content {
   overflow-x: auto;
-}
-.widget-datagrid-grid-head {
-  display: contents;
-}
-.widget-datagrid-grid-body {
-  display: contents;
 }
 .widget-datagrid-footer {
   container: widget-datagrid-footer/inline-size;
@@ -21788,15 +21756,41 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   margin: var(--spacing-small, 8px) 0;
 }
 
-.infinite-loading.widget-datagrid-grid-body {
+.infinite-loading .widget-datagrid-grid-head {
+  width: calc(var(--widgets-grid-width) - var(--widgets-grid-scrollbar-size));
+  overflow-x: hidden;
+}
+.infinite-loading .widget-datagrid-grid-head[data-scrolled-y=true] {
+  box-shadow: 0 5px 5px -5px gray;
+}
+.infinite-loading .widget-datagrid-grid-body {
+  width: var(--widgets-grid-width);
   overflow-y: auto;
+  max-height: var(--widgets-grid-body-height);
+}
+.infinite-loading .widget-datagrid-grid-head[data-scrolled-x=true]:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 10px;
+  box-shadow: inset 5px 0 5px -5px gray;
+  top: 0;
+  bottom: 0;
 }
 
-.widget-datagrid-grid-head,
+.widget-datagrid-grid-head {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: var(--widgets-grid-template-columns-head, var(--widgets-grid-template-columns));
+}
+
 .widget-datagrid-grid-body {
   display: grid;
-  grid-template-columns: subgrid;
-  grid-column: 1/-1;
+  grid-template-columns: var(--widgets-grid-template-columns);
+}
+
+.grid-mock-header {
+  display: contents;
 }
 
 :where(.widget-datagrid-paging-bottom, .widget-datagrid-padding-top) {
@@ -21943,7 +21937,7 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 .react-datepicker__day--in-range:hover {
   border-radius: 50%;
   color: var(--brand-primary, #264ae5);
-  background-color: var(--gray-ligter, #f8f8f8);
+  background-color: var(--gray-lighter, #f8f8f8);
 }
 
 .react-datepicker__day-name {
@@ -21958,7 +21952,7 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 .react-datepicker__day--today:not(.react-datepicker__day--in-range),
 .react-datepicker__day--keyboard-selected {
   color: var(--brand-primary, #264ae5);
-  background-color: var(--gray-ligter, #f8f8f8);
+  background-color: var(--gray-lighter, #f8f8f8);
 }
 
 .react-datepicker__month-select:focus-visible,
@@ -22052,11 +22046,11 @@ Space between the fields and the popup
   position: relative;
 }
 .filter-container .filter-input {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
 }
 .filter-container .btn-calendar {
-  margin-left: 5px;
+  margin-inline-start: 5px;
 }
 .filter-container .btn-calendar .button-icon {
   width: 18px;
@@ -22073,16 +22067,16 @@ Space between the fields and the popup
 }
 .filter-selector .filter-selector-content .filter-selector-button {
   padding: 8px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-right: none;
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+  border-inline-end: none;
   height: 100%;
 }
 .filter-selector .filter-selector-content .filter-selector-button:before {
   justify-content: center;
   width: 20px;
   height: 20px;
-  padding-left: 4px;
+  padding-inline-start: 4px;
   /* The font has spaces in the right side, so to align in the middle we need this */
 }
 
