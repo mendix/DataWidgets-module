@@ -21877,10 +21877,10 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   }
 }
 @container widget-datagrid-header (width < 500px) {
-  .widget-datagrid-padding-top {
+  .widget-datagrid-paging-top {
     flex-direction: column-reverse;
   }
-  .widget-datagrid-padding-top :where(.widget-datagrid-tb-start, .widget-datagrid-tb-end) {
+  .widget-datagrid-paging-top :where(.widget-datagrid-tb-start, .widget-datagrid-tb-end) {
     width: 100%;
     justify-content: center;
   }
@@ -23018,7 +23018,19 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
   align-items: center;
 }
 
-:where(.widget-gallery-fc-start, .widget-gallery-tb-start, .widget-gallery-fc-end, .widget-gallery-tb-end) {
+:where(.widget-gallery-fc-middle, .widget-gallery-tb-middle) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+:where(.widget-gallery-fc-start,
+    .widget-gallery-tb-start,
+    .widget-gallery-fc-middle,
+    .widget-gallery-tb-middle,
+    .widget-gallery-fc-end,
+    .widget-gallery-tb-end) {
   flex-grow: 1;
   flex-basis: 33.33%;
 }
@@ -23029,7 +23041,7 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
   align-items: center;
 }
 
-:where(.widget-gallery-fc-end, .widget-gallery-tb-end):not(:empty) {
+:where(.widget-gallery-fc-middle, .widget-gallery-tb-middle, .widget-gallery-fc-end, .widget-gallery-tb-end):not(:empty) {
   padding: var(--spacing-small) 0;
 }
 
@@ -23063,7 +23075,7 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
   .widget-gallery-top-bar-controls {
     flex-direction: column-reverse;
   }
-  .widget-gallery-top-bar-controls :where(.widget-gallery-tb-start, .widget-gallery-tb-end) {
+  .widget-gallery-top-bar-controls :where(.widget-gallery-tb-start, .widget-gallery-tb-middle, .widget-gallery-tb-end) {
     width: 100%;
     justify-content: center;
   }
@@ -23148,12 +23160,10 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
   --gallery-gap: var(--spacing-large, $spacing-large);
 }
 
-.widget-gallery-pagination-left .widget-gallery-pagination .pagination-bar {
-  justify-content: flex-start;
-}
-
-.widget-gallery-pagination-center .widget-gallery-pagination .pagination-bar {
-  justify-content: center;
+.widget-gallery-pagination-left,
+.widget-gallery-pagination-center,
+.widget-gallery-pagination-right {
+  /* stylelint-disable-line no-empty-rules */
 }
 
 .widget-gallery-disable-selected-items-highlight {
