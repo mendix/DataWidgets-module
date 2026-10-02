@@ -21386,6 +21386,9 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   /* Header text */
   /* Header filter */
 }
+.table .th .form-control {
+  min-width: 0;
+}
 .table .th.dragging {
   opacity: 0.5;
 }
@@ -21478,6 +21481,12 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   margin-bottom: 0;
 }
 .table:has(.th .column-container .filter:not(:empty)) .th {
+  /*
+      When the column is smaller than the filter can be, the filter will overflow outside of the column to the space of the next column.
+      This is not visible in normal scenario as next colum naturally hides the overflow of the previous column.
+      But when the filter selector is open in virtual scrolling, the column gets lifted with z-index and the overflow becomes visible.
+   */
+  overflow: clip;
   /*adjust filter-selector icon to be mid-bottom aligned */
   /*adjust checkbox toggle to be mid-bottom aligned */
 }
@@ -21551,6 +21560,9 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   border-bottom-width: 1px;
   min-width: 0;
 }
+.table .td .form-control {
+  min-width: 0;
+}
 .table .td.td-borders {
   border-top-width: 1px;
   border-top-style: solid;
@@ -21573,6 +21585,9 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
 .table .td > .td-custom-content {
   flex-grow: 1;
   min-width: 0;
+}
+.table .td > .td-custom-content .form-group:last-child:not([class*=spacing-outer-bottom]) {
+  margin-bottom: 0;
 }
 .table .td > .empty-placeholder {
   width: 100%;
@@ -22052,7 +22067,6 @@ Space between the fields and the popup
   flex-direction: row;
   flex-grow: 1;
   position: relative;
-  overflow: hidden;
 }
 .filter-container .filter-input {
   border-start-start-radius: 0;
@@ -22365,6 +22379,7 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
   padding-block: var(--wdf-button-spacing);
   padding-inline-end: var(--wdf-button-spacing);
   padding-inline-start: var(--wdf-button-spacing);
+  overflow: clip;
 }
 .widget-dropdown-filter-popover {
   z-index: var(--wdf-popover-z-index);
