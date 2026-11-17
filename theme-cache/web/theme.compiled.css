@@ -21218,7 +21218,7 @@ html div.dj_ios .widget-switch.auto .widget-switch-btn-wrapper.checked.widget-sw
   justify-content: flex-end;
   white-space: nowrap;
   align-items: baseline;
-  color: #0a1325;
+  color: var(--font-color-default, #0a1325);
 }
 .pagination-bar .paging-status {
   padding: 0 8px 0;
@@ -22356,13 +22356,13 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
   --wdf-popover-z-index: 50;
   --wdf-popover-shadow: 0px 0px var(--wdf-outer-spacing) 0px var(--shadow-color-border, rgba(0, 0, 0, 0.2));
   --wdf-bd-radius: var(--dropdown-border-radius, 7px);
-  --wdf-menu-bg-color: var(--label-info-color, $color-base);
+  --wdf-menu-bg-color: var(--label-info-color, #fff);
   --wdf-menu-max-height: var(--dropdown-menu-max-height, 320px);
   --wdf-menu-item-padding: 6px 10px;
-  --wdf-highlighted-bg-color: var(--color-default-light, $color-default-light);
-  --wdf-selected-bg-color: var(--color-primary-lighter, $color-primary-lighter);
+  --wdf-highlighted-bg-color: var(--color-default-light, #f8f8f8);
+  --wdf-selected-bg-color: var(--color-primary-lighter, #d4dbfa);
   --wdf-button-spacing: 8px;
-  --wdf-color: var(--font-color-default, $gray-dark);
+  --wdf-color: var(--font-color-default, #474e5c);
   --wdf-state-icon-size: 16px;
   --wdf-toggle-width: calc(4px + var(--wdf-state-icon-size) + var(--wdf-button-spacing));
   --wdf-toggle-inline-end: var(--wdf-toggle-width);
@@ -22553,7 +22553,7 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
 }
 
 :where(.widget-dropdown-filter.variant-select[data-empty]) {
-  --wdf-input-placeholder-color: var(--form-input-placeholder-color, $form-input-placeholder-color);
+  --wdf-input-placeholder-color: var(--form-input-placeholder-color, #6c717c);
 }
 :where(.widget-dropdown-filter.variant-select[data-empty]) .widget-dropdown-filter-toggle {
   color: var(--wdf-input-placeholder-color);
@@ -22786,7 +22786,7 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
    Override styles of Gallery widget
 ========================================================================== */
 .widget-gallery {
-  --gallery-gap: var(--spacing-small, $gallery-gap);
+  --gallery-gap: var(--spacing-small, 8px);
   /**
    Helper classes
     */
@@ -23164,15 +23164,15 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
 }
 
 .widget-gallery.widget-gallery-gridgap-small {
-  --gallery-gap: var(--spacing-small, $spacing-small);
+  --gallery-gap: var(--spacing-small, 8px);
 }
 
 .widget-gallery.widget-gallery-gridgap-medium {
-  --gallery-gap: var(--spacing-medium, $spacing-medium);
+  --gallery-gap: var(--spacing-medium, 16px);
 }
 
 .widget-gallery.widget-gallery-gridgap-large {
-  --gallery-gap: var(--spacing-large, $spacing-large);
+  --gallery-gap: var(--spacing-large, 24px);
 }
 
 .widget-gallery-pagination-left,
@@ -23315,7 +23315,7 @@ input[type=checkbox].three-state-checkbox:disabled:before {
 }
 input[type=checkbox].three-state-checkbox:indeterminate:disabled:before, input[type=checkbox].three-state-checkbox:checked:disabled:before {
   border-color: transparent;
-  background-color: var(--brand-primary-200, rgba(38, 74, 229, 0.4));
+  background-color: var(--brand-primary-200, color-mix(in srgb, #264ae5 40%, transparent));
 }
 input[type=checkbox].three-state-checkbox:disabled:after {
   border-color: var(--gray-50, #f8f8f8);
